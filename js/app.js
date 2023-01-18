@@ -1,33 +1,3 @@
-// Lesson 18
-
-//Task 1
-let firstMonth = prompt("Enter fierst month salary", '1');
-let secondtMonth = prompt("Enter second month salary", '2');
-let sum = +firstMonth + +secondtMonth
-alert(`Your salary for 2 month is:  ${sum}$`);
-
-//Task 2
-alert(`Your have extra bonus! Your total salary was: ${sum}$  It's increase for 1$ and now it is: ${++sum}$`);
-
-//Task 3
-let sumBonus = +firstMonth + +secondtMonth + 1;
-//  alert(`Will you work next? ${sumBonus >= 2000}  `);
-
-//Task 4
-((sumBonus >= 2000) && !alert(`I'm ready to work`)) || !alert(`I'm out`);
-
-
-// if (sumBonus >= 2000) {
-//       alert(`I'm ready to work`) 
-// } else {
-//    alert(`I'm out`) 
-// } 
-
-// console.log(sumBonus >= 2000);
-
-
-// ===================================
-
 //Task 1
 
  let age = prompt('How old are you?', 'age');
@@ -35,7 +5,7 @@ let sumBonus = +firstMonth + +secondtMonth + 1;
 
 
  let answer;
- if(ageNumber <= 17){
+ if(ageNumber <= 17 && ageNumber > 0){
      answer = "Do you study at school?";
  } else if (ageNumber > 17 && ageNumber < 25){
      answer = "Do you study at university?";
@@ -50,19 +20,19 @@ let sumBonus = +firstMonth + +secondtMonth + 1;
 let display = prompt('Specify Display Values CSS', "block, flex, grid, inline, none")
 switch(display){
     case 'block':
-        alert('block');
+        alert("Set 'display: block;'");
         break;
     case 'flex':
-        alert('flex');
+        alert("Set 'display: flex;'");
         break;
     case 'grid':
-        alert("grid" );
+        alert("Set 'display: grid;'");
         break;
     case 'inline':
-        alert('inline' );
+        alert("Set 'display: inline;'" );
         break;
     case 'none':
-        alert('none');
+        alert("Set 'display: none;'");
         break;
     default:
         alert("Set 'display: inline-block;'");
