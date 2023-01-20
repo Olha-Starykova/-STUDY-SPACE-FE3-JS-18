@@ -14,7 +14,7 @@
  } else {
      answer = "What are you doing?";
  }
- console.log(confirm(answer) );
+ console.log(confirm(answer));
 
 //Task 2 
 let display = prompt('Specify Display Values CSS', "block, flex, grid, inline, none")
@@ -41,9 +41,9 @@ switch(display){
  //Task 3
 
  let numberUser = prompt("Please enter the number", 1);
- number = Number(numberUser);
+ let number = Number(numberUser);
  
- multiplication = number*12;
+ let multiplication = number*12;
 
 (number > 0) && number ? alert(`${number} by 12 equals ${multiplication}`) : alert('Your number is incorect, please enter corect number');
  
