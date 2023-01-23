@@ -13,7 +13,7 @@ car.color = 'black';
 car.type = 'electric';
 
 function signal() {
-    alert('fa! fa!');
+    // alert('fa! fa!');
   }
   
 car.signal = signal;
@@ -81,5 +81,69 @@ let apple = new CreateObj('Apple', 'MAC OS', 1700,);
 console.log(String(dell)); //Dell
 console.log(+apple); //1700
 console.log(dell + apple); // Dell windows 800 // Aplle MAC OS 1700 //
+
+//Task 5 ========================================================================================
+// Написати функцію, яка отримує на вхід два числа.  Якщо обидва числа парні - функція повертає одне число помножене на інше.  Якщо обидва числа непарні – функція повертає їхню суму.  Якщо одне з чисел парне, а друге непарне - функція повертає непарне число.
+
+let calculation = 0;
+function calcNumber(a, b) {
+    if ((((a % 2) === 0 ) && ((b % 2)) === 0 )) {
+        calculation = a * b
+        console.log(calculation);
+    }
+     else if ((((a % 2) !== 0 ) && ((b % 2)) !== 0 )) {
+        calculation = a + b
+        console.log(calculation);
+    }
+    else if ((a % 2) !== 0 ) {
+        console.log(a) 
+    } else
+    console.log(b)
+};
+
+calcNumber(1, 2);
+calcNumber(2, 1);
+calcNumber(4, 4);
+calcNumber(5, 5);
+
+//Task 6 ========================================================================================
+
+//  Створіть об‘єкт зі списком задач, де ключ - ім‘я того, хто додає задачу, значення - ще один об‘єкт, який містить у собі 2 пари ключ-значення: статус і текст задачі. Додайте декілька prompt, щоб дати можливість користувачу додавати задачі в об‘єкт
+// Приклад об‘єкту:
+// const tasks = {
+//   Anna: {
+//     status: 'new',
+//     text: 'Create checkout page'
+//   }, 
+//   Ihor: {
+//     status: 'done',
+//     text: 'Add styles to header'
+//   } 
+// }
+
+let addNameFirst = prompt("Enter your name", 'Anna');
+let addStatusFirst = prompt("Enter your status", 'new');
+let addTextFirst = prompt("Enter your text", 'Create checkout page');
+
+let addNameSecond = prompt("Enter your name", 'Ihor');
+let addStatusSecond = prompt("Enter your status", 'done');
+let addTextSecond = prompt("Enter your text", 'Add styles to header');
+
+
+function User(nameFirst, statusFirst, textFirst,nameSecond, statusSecond, textSecond){
+    this[nameFirst] = {
+        statusFirst,
+        textFirst,
+    },
+    this[nameSecond] = {
+        statusSecond,
+        textSecond,
+    };
+};
+
+let tasks = new User(addNameFirst, addStatusFirst, addTextFirst, addNameSecond, addStatusSecond, addTextSecond);
+
+console.log(tasks);
+
 
 
