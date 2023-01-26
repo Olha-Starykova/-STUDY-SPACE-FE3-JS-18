@@ -28,7 +28,7 @@ function isComparison(a, b){
     console.log('Length a = b')
   };
 };
-isComparison(a ,b) // Length a > b
+isComparison(a ,b) // Length a < b
 
 let totalComparisonArrA = 0;
 let totalComparisonArrB = 0;
