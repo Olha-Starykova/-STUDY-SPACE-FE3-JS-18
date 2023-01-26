@@ -22,7 +22,7 @@ function isComparison(a, b){
    console.log('Length a > b')
  };
  if(a.length < b.length){
-    console.log('Length a > b')
+    console.log('Length a < b')
   };
   if(a.length == b.length){
     console.log('Length a = b')
