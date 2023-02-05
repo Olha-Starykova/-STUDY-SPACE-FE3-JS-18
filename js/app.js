@@ -66,8 +66,6 @@ Object.defineProperty(salaries,'addSalaries', {
       this.backend = +userInfo[1]  
       case 'design':
       this.design = +userInfo[1]  
-      case 'manager':
-      this.manager = +userInfo[1]  
       default:
       this[userInfo[0]] = +userInfo[1] ;
   }
