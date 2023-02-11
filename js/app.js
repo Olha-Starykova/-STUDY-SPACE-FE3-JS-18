@@ -1,26 +1,185 @@
-// Lesson 18
+'use strict'
+// Lesson 28
 
 //Task 1
-let firstMonth = prompt("Enter fierst month salary", '1');
-let secondtMonth = prompt("Enter second month salary", '2');
-let sum = +firstMonth + +secondtMonth
-alert(`Your salary for 2 month is:  ${sum}$`);
+
+// function count(expression){
+//   function getValues(expression){
+//       let values = [...expression]
+//       return values;
+//   }
+//       let values = getValues(expression);
+//       switch (values[1]) {
+//     case '+': 
+//      return  showResult(sum(values));
+//     case '-':
+//      return  showResult(subtract(values));
+//     case '*':
+//      return  showResult(multiply(values));
+//     case '/':
+//      return showResult(divide(values))
+//  }
+//  function showResult(value){
+//      return value
+//  }
+// }
+// function sum(values) {
+//   return +values[1] + +values[2];
+// }
+// function subtract(values) {
+//   return values[1] - values[2];
+// }
+// function multiply(values) {
+//   return values[1] * values[2];
+// }
+// function divide(values) {
+//   return values[1] / values[2];
+// }
+
+
 
 //Task 2
-alert(`Your have extra bonus! Your total salary was: ${sum}$  It's increase for 1$ and now it is: ${++sum}$`);
+function count(expression){
+  function getValues(data){
+     let values = [...data]
+     return values;
+  }
+  let values = getValues(expression);
+  switch (values[1]) {
+      case '+': 
+       return  showResult(sum(values));
+      case '-':
+       return  showResult(subtract(values));
+      case '*':
+       return  showResult(multiply(values));
+      case '/':
+       return showResult(divide(values))
+   }
+   function showResult(value){
+       return value
+   }
+}
+
+function sum(values) {
+  return +values[0] + +values[2];
+}
+function subtract(values) {
+  return values[0] - values[2];
+}
+function multiply(values) {
+  return values[0] * values[2];
+}
+
+function divide(values) {
+  try{
+  if (values[2] === "0") {
+   console.log(values[2])
+   throw new Error('Can\'t divide by 0');
+  } else 
+    return values[0] / values[2];
+  }
+  catch(error){
+  console.log(`${error.name}: ${error.message}`)
+      }
+    }
+
+
+try {
+  count('5/0')
+}
+catch(error){
+  console.log('System error, we are doing our best to solve the problem')
+};
+
 
 //Task 3
-let sumBonus = +firstMonth + +secondtMonth + 1;
-// alert(`Will you work next? ${sumBonus >= 2000}  `);
+
+
+// function count(expression){
+//   function getValues(expression){
+//       let values = [...expression]
+//       return values;
+//   }
+//       let values;
+//       try{
+//         let data = Values(expression);//*
+//         data = values
+//       }catch(error){
+//         console.log(error.name + ': ' + error.message)//**
+//         values = [0, '+', 0]
+//       }
+//       switch (values[1]) {
+//     case '+': 
+//      return  showResult(sum(values));
+//     case '-':
+//      return  showResult(subtract(values));
+//     case '*':
+//      return  showResult(multiply(values));
+//     case '/':
+//      return showResult(divide(values))
+//  }
+//  function showResult(value){
+//      return value
+//  }
+// }
+// function sum(values) {
+//   return +values[0] + +values[2];
+// }
+// function subtract(values) {
+//   return +values[0] - +values[2];
+// }
+// function multiply(values) {
+//   return +values[0] * +values[2];
+// }
+// function divide(values) {
+//   return +values[0] / +values[2];
+// }
+
+
+
+
+
+
 
 //Task 4
-((sumBonus >= 2000) && !alert(`I'm ready to work`)) || !alert(`I'm out`);
 
 
-// if (sumBonus >= 2000) {
-//       alert(`I'm ready to work`) 
-// } else {
-//    alert(`I'm out`) 
-// } 
+function MakeUsers(name, age){
+  this.name = name;
+  this.age = age;
+}
 
-console.log(sumBonus >= 2000);
+let userAge = prompt("Enter your age", 0);
+let user = new MakeUsers('Mike', userAge);
+
+function showMovie (user){
+  try{
+      if(user.age === null){
+        userAge = prompt("Please enter your age", 0);
+         throw new SyntaxError('You didn\'t enter your age');
+      }
+      if (user.age === undefined){
+         throw new SyntaxError('Age not determined');
+      }
+      if(user.age >= 18){
+          return 'You can watch this movie';
+      } else {
+          return 'Sorry, you are too young';
+  }
+  } catch(error){
+          return error.name + ': ' + error.message;
+  } finally {
+      console.log('Welcome to our site');
+  }
+}
+
+function message(message) {
+  console.log(message);
+}
+
+
+try{
+message(showMovie(user));
+}catch(error){
+  console.log(error.name + ': ' + error.message)
+}
