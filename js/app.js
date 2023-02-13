@@ -155,7 +155,6 @@ let user = new MakeUsers('Mike', userAge);
 function showMovie (user){
   try{
       if(user.age === null){
-        userAge = prompt("Please enter your age", 0);
          throw new SyntaxError('You didn\'t enter your age');
       }
       if (user.age === undefined){
@@ -167,7 +166,11 @@ function showMovie (user){
           return 'Sorry, you are too young';
   }
   } catch(error){
-          return error.name + ': ' + error.message;
+    if(error.message === 'You didn\'t enter your age' || 'Age not determined'){
+      user.age = prompt("Please enter your age", 0);
+      return error.name + ': ' + error.message;
+    }
+          
   } finally {
       console.log('Welcome to our site');
   }
