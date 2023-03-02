@@ -1,26 +1,27 @@
-// Lesson 18
+'use strict'
+// Lesson 35
 
-//Task 1
-let firstMonth = prompt("Enter fierst month salary", '1');
-let secondtMonth = prompt("Enter second month salary", '2');
-let sum = +firstMonth + +secondtMonth
-alert(`Your salary for 2 month is:  ${sum}$`);
-
-//Task 2
-alert(`Your have extra bonus! Your total salary was: ${sum}$  It's increase for 1$ and now it is: ${++sum}$`);
-
-//Task 3
-let sumBonus = +firstMonth + +secondtMonth + 1;
-// alert(`Will you work next? ${sumBonus >= 2000}  `);
-
-//Task 4
-((sumBonus >= 2000) && !alert(`I'm ready to work`)) || !alert(`I'm out`);
+function test(value){
+  return true
+}
 
 
-// if (sumBonus >= 2000) {
-//       alert(`I'm ready to work`) 
-// } else {
-//    alert(`I'm out`) 
-// } 
+function validateEmail(email){
+  if (email === '') return false;
+  if (typeof email !== 'string') return false;
+  if (!email.split('').includes('@') || email.split('')[0] === '@') return false;
+  if(email.length < 5) return false;
+  let numberAt = email.split('').filter(item => item.includes('@') );
+  if (numberAt.length !== 1) return false;
+  let arrayDot = email.split("@")
+  if(arrayDot[1].indexOf('.') === 5) return true;
+  if(arrayDot[1].indexOf('.') === -1) return false;
+  if(email.includes('.@')) return false;
+ // return true
+};
 
-console.log(sumBonus >= 2000);
+
+
+
+
+
