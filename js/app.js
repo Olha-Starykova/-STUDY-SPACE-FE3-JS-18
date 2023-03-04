@@ -3,137 +3,23 @@
 
 
 
-// let data ='{"name": "Mike","age": 18,"isAdmin": false}';
-
-// console.log(JSON.parse(data));
-
-// let user ={name: 'mike', age: 18, isAdmin: false};
-
-// console.log(JSON.stringify(user));//{"name":"mike","age":18,"isAdmin":false}
-
-// fetch('http://127.0.0.1:5500/data.json')
-// .then(response => response.json())
-// .then(data => console.log(data));
-
-// let user ={
-//   name: 'Mike',
-//   toJSON(){
-//       return {"name": "unknow"}
-//   }
-// }
-// let jsonUser = JSON.stringify(user);
-// console.log(jsonUser);
-
-// const user1 = {
-//   name: 'Alex', 
-//   age: 28,
-//   country: 'USA'
-// }
-
-// const userProxy = new Proxy(user1, {
-//   get(target, prop) {
-//     console.log(target)
-//     console.log(prop)
-//     return `${target[prop]}-proxy`
-//   },
-//   set(target, prop, value) {
-//     if (prop in target) {
-//       target[prop] = value;
-//     } else {
-//       throw new Error(`No ${prop} in object`)
-//     }
-//   }
-// })
-
-//  const log = text => `console log ${text}`;
-
-// // function log2(text) {
-// //   return `console log ${text}`;
-// // } 
-
-// const fnProxy = new Proxy(log, {
-//   apply(target, _thisArgs, args) {
-//     return target(args).toUpperCase();
-//   }
-// })
-
-// let user ={name: 'Mike', age: 18, isAdmin: false};
-
-// user = new Proxy(user, {
-//     get(target, property) {
-//         console.log(`Property "${property}" has been read.`);
-//         return target[property];
-//     }
-// });
-
-// console.log(user.name);//Property "name" has been read. 
-// //Mike
-// user.name = 'Bob'
-
-// console.log(user.name);//Property "name" has been read. 
-// //Bob
-
-
-// let nikola = {firstName: 'Nikola', lastName: 'Tesla', age:18, isAdmin:true};
-// let cookieName = 'admin';
-// document.cookie = `${cookieName}=${JSON.stringify(nikola)}; path=/; expires=Tue, 15 Jan 2025 06:00:00 GMT;`
-
-
 //Task 1
 
-// fetch('http://127.0.0.1:5500/data.json')
-// .then(response => response.json())
-// .then(data => { data
+let text = '{"mike":{"name": "Mike", "age": 18,"isAdmin": false },"bob":{   "name": "Bob","age": 32,"isAdmin":false },"nikola":{"name": "Nikola","age": 25,"isAdmin": true}}';
 
+ const data = JSON.parse(text);
+ //console.log(data)
 
-//   function showAdminName(data){
-//     for (let value of Object.values(data)) {
-//     if(value.isAdmin){
-//     return console.log(value.name)
-//  }
-// showAdminName(data)
-//   }
+ function showAdminName(data){
+    for (let value of Object.values(data)) {
+    if(value.isAdmin){
+    return console.log(value.name)
+ }
+  }
+  }
 
-//   }
- 
-// } 
+showAdminName(data)//Nikola
 
-// ); 
-
- 
-//  const obj = JSON.parse(data)
-
-// console.log(obj)
-
-//   user = new Proxy(user, {
-//     get(target, property) {
-//         console.log(`Property "${property}" has been read.`);
-//         return target[property];
-//     }
-// });
-
-//console.log(user.name);
-
-// function showAdminName(data){
-// console.log(data)
-//  }
-
-//Task 1
-
-// let text = '{"mike":{"name": "Mike", "age": 18,"isAdmin": false },"bob":{   "name": "Bob","age": 32,"isAdmin":false },"nikola":{"name": "Nikola","age": 25,"isAdmin": true}}';
-
-//  const data = JSON.parse(text);
-//  //console.log(data)
-
-//  function showAdminName(data){
-//     for (let value of Object.values(data)) {
-//     if(value.isAdmin){
-//     return console.log(value.name)
-//  }
-//   }
-//   }
-
-// showAdminName(data)//Nikola
 //Task 2
 
 let nikola = {firstName: 'Nikola', lastName: 'Tesla'};
@@ -170,7 +56,43 @@ console.log(getFullName(michael));// No name
 
 //Task 3
 
+let users = [
+  {name: 'Nikola', age: 18, id:1},
+  {name: 'Bob', age: 25, id:2},
+  {name: 'Mike', age: 32, id:3},
+];
 
+
+localStorage.setItem(users[0].name, JSON.stringify(users[0]))
+localStorage.setItem(users[1].name, JSON.stringify(users[1]))
+localStorage.setItem(users[2].name, JSON.stringify(users[2]))
+
+
+ 
+function sayHelloToUser(id){
+  //console.log(localStorage.key(id));
+
+  let keys = Object.keys(localStorage);
+  for(let key of keys) {
+ let obj
+    obj = JSON.parse(localStorage.getItem(key))
+    if(obj.id === id)return console.log(`Hello: ${key}`)
+}
+};
+
+//sayHelloToUser(3); //Hello: Mike
 
 //Task 4
 
+document.addEventListener('DOMContentLoaded', function() {
+  let input = document.querySelector('[type="text"]');
+
+  if (input) {
+    input.value = localStorage.getItem("data") || "";
+
+    input.addEventListener('input', function() {
+      localStorage.setItem("data", this.value);
+    });
+    
+  }
+});
